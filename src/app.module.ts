@@ -41,7 +41,7 @@ export class AppModule implements OnModuleInit {
 
   constructor(private readonly dataSource: DataSource) {}
 
-  async onModuleInit() {
+  onModuleInit() {
     if (this.dataSource.isInitialized) {
       this.logger.log('Database connection established successfully');
     }

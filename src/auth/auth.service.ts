@@ -19,9 +19,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async register(
-    registerDto: RegisterDto,
-  ): Promise<Omit<User, 'password'>> {
+  async register(registerDto: RegisterDto): Promise<Omit<User, 'password'>> {
     const existing = await this.userRepository.findOne({
       where: { email: registerDto.email },
     });
@@ -38,7 +36,8 @@ export class AuthService {
     });
 
     const saved = await this.userRepository.save(user);
-    const { password: _, ...result } = saved;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...result } = saved;
     return result;
   }
 

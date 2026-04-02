@@ -63,8 +63,9 @@ export class VariantsService {
     const size = updateVariantDto.size ?? variant.size;
     const material = updateVariantDto.material ?? variant.material;
 
-    const newCombinationKey =
-      `${color}-${size}-${material}`.toLowerCase().trim();
+    const newCombinationKey = `${color}-${size}-${material}`
+      .toLowerCase()
+      .trim();
 
     if (newCombinationKey !== variant.combinationKey) {
       await this.checkDuplicate(variant.productId, newCombinationKey);
