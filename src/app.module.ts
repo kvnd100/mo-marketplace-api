@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { VariantsModule } from './variants/variants.module';
+import { CategoriesModule } from './categories/categories.module';
 import databaseConfig from './config/database.config';
 import { DataSource } from 'typeorm';
 
@@ -27,12 +28,13 @@ import { DataSource } from 'typeorm';
         database: configService.get<string>('database.name'),
         autoLoadEntities: true,
         synchronize:true,
-        ssl: { rejectUnauthorized: false },
+        // ssl: { rejectUnauthorized: false },
       }),
     }),
     AuthModule,
     ProductsModule,
     VariantsModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

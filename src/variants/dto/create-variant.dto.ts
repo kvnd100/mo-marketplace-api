@@ -39,4 +39,9 @@ export class CreateVariantDto {
   @IsOptional()
   @IsString()
   sku?: string;
+
+  @ApiPropertyOptional({ example: 'https://example.com/variant-image.jpg' })
+  @IsOptional()
+  @IsString()
+  imageUrl?: string;
 }

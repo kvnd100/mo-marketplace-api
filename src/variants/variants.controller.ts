@@ -71,6 +71,22 @@ export class VariantsController {
     return this.variantsService.update(id, updateVariantDto);
   }
 
+  @Patch('products/:productId/variants/:id')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Update a variant for a product' })
+  @ApiResponse({ status: 200, description: 'Variant updated successfully' })
+  @ApiResponse({ status: 404, description: 'Variant not found' })
+  @ApiResponse({ status: 409, description: 'Duplicate variant combination' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  updateByProduct(
+    @Param('productId', ParseUUIDPipe) productId: string,
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateVariantDto: UpdateVariantDto,
+  ) {
+    return this.variantsService.update(id, updateVariantDto);
+  }
+
   @Delete('variants/:id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()

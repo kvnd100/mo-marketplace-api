@@ -41,6 +41,9 @@ export class Variant {
   @Column({ nullable: true })
   sku: string;
 
+  @Column({ nullable: true })
+  imageUrl: string;
+
   @CreateDateColumn()
   createdAt: Date;
 

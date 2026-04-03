@@ -25,6 +25,24 @@ export class Product {
   @Column({ nullable: true })
   imageUrl: string;
 
+  @Column('simple-array', { nullable: true })
+  images: string[];
+
+  @Column({ nullable: true })
+  category: string;
+
+  @Column({ nullable: true })
+  brand: string;
+
+  @Column({ nullable: true })
+  condition: string;
+
+  @Column('decimal', { precision: 3, scale: 2, nullable: true })
+  rating: number;
+
+  @Column({ type: 'int', nullable: true, default: 0 })
+  reviewCount: number;
+
   @CreateDateColumn()
   createdAt: Date;
 
