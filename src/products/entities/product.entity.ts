@@ -43,6 +43,9 @@ export class Product {
   @Column({ type: 'int', nullable: true, default: 0 })
   reviewCount: number;
 
+  @Column({ type: 'int', default: 0 })
+  stock: number;
+
   @CreateDateColumn()
   createdAt: Date;
 
