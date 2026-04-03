@@ -6,6 +6,7 @@ import {
   Delete,
   Body,
   Param,
+  Query,
   UseGuards,
   HttpCode,
   HttpStatus,
@@ -20,6 +21,7 @@ import {
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { PaginationQueryDto } from './dto/pagination-query.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @ApiTags('products')
@@ -38,10 +40,10 @@ export class ProductsController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Get all products' })
-  @ApiResponse({ status: 200, description: 'List of all products' })
-  findAll() {
-    return this.productsService.findAll();
+  @ApiOperation({ summary: 'Get all products (paginated)' })
+  @ApiResponse({ status: 200, description: 'Paginated list of products' })
+  findAll(@Query() query: PaginationQueryDto) {
+    return this.productsService.findAll(query);
   }
 
   @Get(':id')
