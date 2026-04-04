@@ -11,47 +11,47 @@ import { Variant } from '../../variants/entities/variant.entity';
 @Entity('products')
 export class Product {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column('text')
-  description: string;
+  description!: string;
 
   @Column('decimal', { precision: 10, scale: 2 })
-  basePrice: number;
+  basePrice!: number;
 
   @Column({ nullable: true })
-  imageUrl: string;
+  imageUrl!: string;
 
   @Column('simple-array', { nullable: true })
-  images: string[];
+  images!: string[];
 
   @Column({ nullable: true })
-  category: string;
+  category!: string;
 
   @Column({ nullable: true })
-  brand: string;
+  brand!: string;
 
   @Column({ nullable: true })
-  condition: string;
+  condition!: string;
 
   @Column('decimal', { precision: 3, scale: 2, nullable: true })
-  rating: number;
+  rating!: number;
 
   @Column({ type: 'int', nullable: true, default: 0 })
-  reviewCount: number;
+  reviewCount!: number;
 
   @Column({ type: 'int', default: 0 })
-  stock: number;
+  stock!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 
   @OneToMany(() => Variant, (variant) => variant.product, { cascade: true })
-  variants: Variant[];
+  variants!: Variant[];
 }

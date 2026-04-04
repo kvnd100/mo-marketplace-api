@@ -34,11 +34,13 @@ export class ProductsService {
     const where: FindOptionsWhere<Product> = {};
 
     if (query.category?.length)
-      where.category = query.category.length === 1 ? query.category[0] : In(query.category);
+      where.category =
+        query.category.length === 1 ? query.category[0] : In(query.category);
     if (query.brand?.length)
       where.brand = query.brand.length === 1 ? query.brand[0] : In(query.brand);
     if (query.condition?.length)
-      where.condition = query.condition.length === 1 ? query.condition[0] : In(query.condition);
+      where.condition =
+        query.condition.length === 1 ? query.condition[0] : In(query.condition);
     if (query.minRating) where.rating = MoreThanOrEqual(query.minRating);
     if (query.stock === 'true') where.stock = MoreThanOrEqual(1);
 
@@ -57,8 +59,9 @@ export class ProductsService {
       newest: { createdAt: 'DESC' },
       oldest: { createdAt: 'ASC' },
     };
-    const order: FindOptionsOrder<Product> =
-      (query.sort ? sortMap[query.sort] : undefined) ?? { createdAt: 'DESC' };
+    const order: FindOptionsOrder<Product> = (query.sort
+      ? sortMap[query.sort]
+      : undefined) ?? { createdAt: 'DESC' };
 
     const [data, total] = await this.productRepository.findAndCount({
       where,

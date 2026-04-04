@@ -17,17 +17,17 @@ export class CreateProductDto {
   @ApiProperty({ example: 'Classic T-Shirt' })
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name!: string;
 
   @ApiProperty({ example: 'A comfortable cotton t-shirt' })
   @IsString()
   @IsNotEmpty()
-  description: string;
+  description!: string;
 
   @ApiProperty({ example: 29.99 })
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
-  basePrice: number;
+  basePrice!: number;
 
   @ApiPropertyOptional({ example: 'https://example.com/image.jpg' })
   @IsOptional()
