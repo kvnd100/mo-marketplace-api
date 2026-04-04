@@ -42,7 +42,9 @@ export class ProductsService {
       where.condition =
         query.condition.length === 1 ? query.condition[0] : In(query.condition);
     if (query.minRating) where.rating = MoreThanOrEqual(query.minRating);
-    if (query.stock === 'true') where.stock = MoreThanOrEqual(1);
+    if (query.stock === 'in-stock' || query.stock === 'true')
+      where.stock = MoreThanOrEqual(1);
+    else if (query.stock === 'out-of-stock') where.stock = 0;
 
     if (query.minPrice && query.maxPrice) {
       where.basePrice = Between(query.minPrice, query.maxPrice);
