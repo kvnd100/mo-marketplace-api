@@ -13,27 +13,27 @@ export class CreateVariantDto {
   @ApiProperty({ example: 'Red' })
   @IsString()
   @IsNotEmpty()
-  color: string;
+  color!: string;
 
   @ApiProperty({ example: 'M' })
   @IsString()
   @IsNotEmpty()
-  size: string;
+  size!: string;
 
   @ApiProperty({ example: 'Cotton' })
   @IsString()
   @IsNotEmpty()
-  material: string;
+  material!: string;
 
   @ApiProperty({ example: 34.99 })
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
-  price: number;
+  price!: number;
 
   @ApiProperty({ example: 100, default: 0 })
   @IsInt()
   @Min(0)
-  stock: number;
+  stock!: number;
 
   @ApiPropertyOptional({ example: 'TSH-RED-M-COT' })
   @IsOptional()
