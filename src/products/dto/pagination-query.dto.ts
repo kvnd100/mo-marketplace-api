@@ -12,10 +12,16 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 
 const ToArray = () =>
-  Transform(({ value }) => {
-    if (value === undefined || value === null) return undefined;
-    return Array.isArray(value) ? value : [value];
-  });
+  Transform(
+    ({
+      value,
+    }: {
+      value: string | string[] | undefined | null;
+    }): string[] | undefined => {
+      if (value === undefined || value === null) return undefined;
+      return Array.isArray(value) ? value : [value];
+    },
+  );
 
 export class PaginationQueryDto {
   @ApiPropertyOptional({ example: 1, default: 1 })
@@ -76,7 +82,10 @@ export class PaginationQueryDto {
   @Min(0)
   maxPrice?: number;
 
-  @ApiPropertyOptional({ example: true, description: 'Filter to in-stock items only' })
+  @ApiPropertyOptional({
+    example: true,
+    description: 'Filter to in-stock items only',
+  })
   @IsOptional()
   @IsString()
   stock?: string;
