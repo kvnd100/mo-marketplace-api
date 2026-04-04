@@ -27,8 +27,10 @@ import { DataSource } from 'typeorm';
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
         autoLoadEntities: true,
-        synchronize:true,
-        // ssl: { rejectUnauthorized: false },
+        synchronize: true,
+        ssl: process.env.NODE_ENV === 'production'
+          ? { rejectUnauthorized: false }
+          : false,
       }),
     }),
     AuthModule,
