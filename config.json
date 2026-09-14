@@ -1,0 +1,417 @@
+{
+  "display": {
+    "showRegions": true,
+    "showReaders": true,
+    "showLabels": true,
+    "showGrid": false,
+    "debugMap": false
+  },
+  "simulation": {
+    "resonateEndpoint": "mqtt://localhost:1883",
+    "siteGraphEndpoint": "",
+    "siteListEndpoint": "",
+    "requestTimeoutMs": 15000,
+    "retryAttempts": 3,
+    "retryDelayMs": 1000,
+    "batchSize": 0,
+    "batchFlushIntervalMs": 0,
+    "connectionTimeoutMs": 2000,
+    "sendTimeoutMs": 500,
+    "supportedTagFormats": [
+      "GID"
+    ],
+    "gid": {
+      "managerNumber": 13149533,
+      "classNumber": 1310
+    },
+    "sgtin96": {
+      "companyPrefix": "0614141",
+      "itemReference": "812345"
+    },
+    "timeToExitSec": 300,
+    "movingTagReadWeight": 10,
+    "movement": {
+      "posVisitRatio": 0.97,
+      "transitionHaltSec": 2,
+      "departureDwellSec": 10,
+      "posMaxWaitSec": 30,
+      "exitMaxWaitSec": 10,
+      "routeCellInches": 24
+    },
+    "maxReadsPerReader": 200,
+    "statsIntervalSec": 1,
+    "randomSeed": null,
+    "readers": {
+      "supportedCategories": [
+        "SNAP",
+        "STAR",
+        "CONTACT",
+        "TRANSITION"
+      ],
+      "supportedTypes": null,
+      "snapHeightMeters": 3,
+      "defaultType": "SNAP_DEFAULT",
+      "defaultTypeByCategory": {
+        "CONTACT": "POS_MAIN_CHECKOUT",
+        "SNAP": "SNAP_DEFAULT",
+        "STAR": "STAR_DEFAULT_FALLBACK",
+        "TRANSITION": "TRANSITION_WALL_MOUNT"
+      },
+      "default": {
+        "maxReadDistanceInches": 540,
+        "antennaCount": 8,
+        "antennaSweepDegrees": 45,
+        "maxReadsPerReader": 200,
+        "sleepDistribution": {
+          "muMin": 3,
+          "sigmaMin": 1,
+          "minMinutes": 1,
+          "maxMinutes": 5
+        },
+        "readProbability": [
+          {
+            "distanceFt": 0,
+            "probability3m": 1,
+            "probability4m": 1,
+            "probability5m": 1
+          },
+          {
+            "distanceFt": 10,
+            "probability3m": 0.95,
+            "probability4m": 0.95,
+            "probability5m": 0.95
+          },
+          {
+            "distanceFt": 20,
+            "probability3m": 0.7,
+            "probability4m": 0.7,
+            "probability5m": 0.7
+          },
+          {
+            "distanceFt": 45,
+            "probability3m": 0,
+            "probability4m": 0,
+            "probability5m": 0
+          }
+        ],
+        "antennaOffsetDegrees": null,
+        "absoluteAntennaBearings": false
+      },
+      "types": {
+        "POS_MAIN_CHECKOUT": {
+          "maxReadDistanceInches": 10,
+          "antennaCount": 2,
+          "antennaSweepDegrees": null,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "POS_UNDER_COUNTER": {
+          "maxReadDistanceInches": 10,
+          "antennaCount": 1,
+          "antennaSweepDegrees": null,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "SNAP_DEFAULT": {
+          "maxReadDistanceInches": null,
+          "antennaCount": null,
+          "antennaSweepDegrees": null,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 0.48,
+              "probability4m": 0.45,
+              "probability5m": 0.47
+            },
+            {
+              "distanceFt": 5,
+              "probability3m": 0.84,
+              "probability4m": 0.61,
+              "probability5m": 0.41
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 1,
+              "probability4m": 0.91,
+              "probability5m": 0.67
+            },
+            {
+              "distanceFt": 15,
+              "probability3m": 0.93,
+              "probability4m": 0.93,
+              "probability5m": 0.81
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.81,
+              "probability4m": 0.87,
+              "probability5m": 0.77
+            },
+            {
+              "distanceFt": 25,
+              "probability3m": 0.73,
+              "probability4m": 0.75,
+              "probability5m": 0.83
+            },
+            {
+              "distanceFt": 30,
+              "probability3m": 0.66,
+              "probability4m": 0.69,
+              "probability5m": 0.73
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "STAR_DEFAULT_FALLBACK": {
+          "maxReadDistanceInches": 540,
+          "antennaCount": null,
+          "antennaSweepDegrees": 90,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "STAR_FLUSH_CEILING_4PORT": {
+          "maxReadDistanceInches": 540,
+          "antennaCount": null,
+          "antennaSweepDegrees": 90,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "STAR_HANGING_4PORT": {
+          "maxReadDistanceInches": 540,
+          "antennaCount": null,
+          "antennaSweepDegrees": 90,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ]
+        },
+        "TRANSITION_HANGING": {
+          "maxReadDistanceInches": 180,
+          "antennaCount": 4,
+          "antennaSweepDegrees": 90,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ],
+          "antennaOffsetDegrees": [
+            0,
+            180,
+            0,
+            180
+          ],
+          "absoluteAntennaBearings": true
+        },
+        "TRANSITION_WALL_MOUNT": {
+          "maxReadDistanceInches": 180,
+          "antennaCount": 4,
+          "antennaSweepDegrees": 90,
+          "maxReadsPerReader": null,
+          "sleepDistribution": null,
+          "readProbability": [
+            {
+              "distanceFt": 0,
+              "probability3m": 1,
+              "probability4m": 1,
+              "probability5m": 1
+            },
+            {
+              "distanceFt": 10,
+              "probability3m": 0.95,
+              "probability4m": 0.95,
+              "probability5m": 0.95
+            },
+            {
+              "distanceFt": 20,
+              "probability3m": 0.7,
+              "probability4m": 0.7,
+              "probability5m": 0.7
+            },
+            {
+              "distanceFt": 45,
+              "probability3m": 0,
+              "probability4m": 0,
+              "probability5m": 0
+            }
+          ],
+          "antennaOffsetDegrees": [
+            0,
+            180,
+            0,
+            180
+          ],
+          "absoluteAntennaBearings": true
+        }
+      }
+    }
+  },
+  "logging": {
+    "directory": "./logs",
+    "fileName": "",
+    "prefix": "rse",
+    "minLevel": "info",
+    "maxSizeMB": 0,
+    "maxBackups": 0,
+    "maxAgeDays": 0,
+    "compress": false,
+    "ignoreLevels": null
+  }
+}
